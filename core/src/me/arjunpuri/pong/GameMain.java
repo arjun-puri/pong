@@ -1,31 +1,58 @@
 package me.arjunpuri.pong;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class GameMain extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
+import me.arjunpuri.pong.managers.GameScreenManager;
+
+public class GameMain extends Game {
+
+//	Application variables
+	public static String APP_TITLE = "Pong game";
+	public static int APP_DESKTOP_WIDTH = 720;
+	public static int APP_DESKTOP_HEIGHT = 420;
+	public static int APP_FPS = 60;
+
+//	Game variables
+	public static int V_WIDTH = 720;
+	public static int V_HEIGHT = 420;
+
+//	Managers
+	public AssetManager assets;
+	public GameScreenManager gsm;
+
+//	Batches
+	public SpriteBatch batch;
+	public ShapeRenderer shapeBatch;
 	
 	@Override
 	public void create () {
+		assets = new AssetManager();
+		gsm = new GameScreenManager(this);
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		shapeBatch = new ShapeRenderer();
 	}
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		super.render();
+
+		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+			Gdx.app.exit();
+		}
 	}
 	
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
+		shapeBatch.dispose();
+		assets.dispose();
 	}
 }
