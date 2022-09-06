@@ -4,15 +4,15 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import me.arjunpuri.pong.managers.GameScreenManager;
+import me.arjunpuri.pong.GameMain;
 
 public abstract class AbstractScreen implements Screen {
 
-    protected final GameScreenManager gsm;
+    protected final GameMain game;
     Stage stage;
 
-    public AbstractScreen(final GameScreenManager gsm) {
-        this.gsm = gsm;
+    public AbstractScreen(final GameMain game) {
+        this.game = game;
         this.stage = new Stage();
     }
 

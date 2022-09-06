@@ -1,12 +1,14 @@
 package me.arjunpuri.pong.screens;
 
+import me.arjunpuri.pong.GameMain;
 import me.arjunpuri.pong.managers.GameScreenManager;
 
 public class GameScreen extends AbstractScreen {
 
-    public GameScreen(final GameScreenManager gsm) {
+    public GameScreen(final GameMain game) {
 //        using AbstractScreen's constructor here.
-        super(gsm);
+        super(game);
+
     }
 
     @Override

@@ -34,10 +34,12 @@ public class GameMain extends Game {
 	
 	@Override
 	public void create () {
-		assets = new AssetManager();
-		gsm = new GameScreenManager(this);
 		batch = new SpriteBatch();
 		shapeBatch = new ShapeRenderer();
+
+//		setup managers
+		assets = new AssetManager();
+		gsm = new GameScreenManager(this);
 	}
 
 	@Override
@@ -51,6 +53,7 @@ public class GameMain extends Game {
 	
 	@Override
 	public void dispose () {
+		super.dispose();
 		batch.dispose();
 		shapeBatch.dispose();
 		assets.dispose();
