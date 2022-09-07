@@ -57,5 +57,6 @@ public class GameMain extends Game {
 		batch.dispose();
 		shapeBatch.dispose();
 		assets.dispose();
+		gsm.dispose();
 	}
 }
