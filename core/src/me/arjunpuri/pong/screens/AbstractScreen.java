@@ -29,7 +29,7 @@ public abstract class AbstractScreen implements Screen {
         update(delta);
 
 //        keeping this here for now as per the tutorial
-        ScreenUtils.clear(1, 0, 0, 1);
+        ScreenUtils.clear(0, 0, 0, 1);
     }
 
     @Override
